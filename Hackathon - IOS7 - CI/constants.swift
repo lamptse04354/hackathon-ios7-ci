@@ -20,4 +20,6 @@ struct BitMask {
     static let CenterFireCategoly : UInt32 = 1<<6
     static let RemovePaddleCatelogy : UInt32 = 1<<7
     static let InvisiblePaddleCatelogy : UInt32 = 1<<8
+    static let bulletsCategoly : UInt32 = 1<<9
+    static let centerCategoly : UInt32 = 1<<10
 }

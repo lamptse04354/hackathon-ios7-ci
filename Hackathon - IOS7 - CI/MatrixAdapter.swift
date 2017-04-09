@@ -17,6 +17,16 @@ class MatrixAdapter{
     
     var spawnTime : Double = 20
     
+    let matrix : [[Int]] = [[1,1,1,1,1,1,1],
+                            [1,2,1,2,1,2,1],
+                            [2,1,2,1,2,1,2],
+                            [1,2,2,1,2,2,1],
+                            [2,2,1,1,1,2,2],
+                            [2,2,1,2,1,2,2]
+                            ]
+    
+//    Int(arc4random_uniform(5))
+    
     var startTime : TimeInterval =  -1
     var spawnTimeCount : TimeInterval = -1
     
@@ -145,6 +155,7 @@ class MatrixAdapter{
             for node in topBricks {
                 node.run(.moveBy(x: 0, y: -( node.size.height), duration: 0.5))
             }
+            
         }
     }
 }

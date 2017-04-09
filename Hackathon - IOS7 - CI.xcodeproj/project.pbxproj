@@ -24,12 +24,13 @@
 		8471DE731E7CBCEB006C8F3D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8471DE721E7CBCEB006C8F3D /* Assets.xcassets */; };
 		8471DE761E7CBCEB006C8F3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8471DE741E7CBCEB006C8F3D /* LaunchScreen.storyboard */; };
 		8496071B1E97A75D001FD985 /* Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496071A1E97A75D001FD985 /* Center.swift */; };
-		8496071E1E97ACAA001FD985 /* PaddleFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496071D1E97ACAA001FD985 /* PaddleFire.swift */; };
-		849607201E97AD0D001FD985 /* CenterFire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496071F1E97AD0D001FD985 /* CenterFire.swift */; };
+		849607201E97AD0D001FD985 /* Fire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496071F1E97AD0D001FD985 /* Fire.swift */; };
 		849607221E97DF3C001FD985 /* BrickManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849607211E97DF3C001FD985 /* BrickManager.swift */; };
 		849E6BE41E98905600566024 /* Brick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E6BE31E98905600566024 /* Brick.swift */; };
 		849E6BE61E9892F000566024 /* RemovePaddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E6BE51E9892F000566024 /* RemovePaddle.swift */; };
 		849E6BE81E98931A00566024 /* InvisiblePaddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E6BE71E98931A00566024 /* InvisiblePaddle.swift */; };
+		84F6963D1E99E55A00789767 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6963C1E99E55A00789767 /* Event.swift */; };
+		84F696401E99E75B00789767 /* Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6963F1E99E75B00789767 /* Bullets.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,12 +53,13 @@
 		8471DE751E7CBCEB006C8F3D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		8471DE771E7CBCEB006C8F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8496071A1E97A75D001FD985 /* Center.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Center.swift; sourceTree = "<group>"; };
-		8496071D1E97ACAA001FD985 /* PaddleFire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PaddleFire.swift; sourceTree = "<group>"; };
-		8496071F1E97AD0D001FD985 /* CenterFire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CenterFire.swift; sourceTree = "<group>"; };
+		8496071F1E97AD0D001FD985 /* Fire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fire.swift; sourceTree = "<group>"; };
 		849607211E97DF3C001FD985 /* BrickManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrickManager.swift; sourceTree = "<group>"; };
 		849E6BE31E98905600566024 /* Brick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brick.swift; sourceTree = "<group>"; };
 		849E6BE51E9892F000566024 /* RemovePaddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemovePaddle.swift; sourceTree = "<group>"; };
 		849E6BE71E98931A00566024 /* InvisiblePaddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvisiblePaddle.swift; sourceTree = "<group>"; };
+		84F6963C1E99E55A00789767 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		84F6963F1E99E75B00789767 /* Bullets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bullets.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -150,23 +152,24 @@
 		8471DE641E7CBCEB006C8F3D /* Hackathon - IOS7 - CI */ = {
 			isa = PBXGroup;
 			children = (
-				8496071C1E97AC96001FD985 /* EventNode */,
-				84036AF11E8AE2D9006A7299 /* ContactDelegate */,
-				84036AEE1E8ADFCF006A7299 /* constant */,
-				845F0C901E8A7E4300CAD38D /* Brick */,
-				845F0C8F1E8A7DCA00CAD38D /* Ball */,
-				845F0C8D1E8A7DAE00CAD38D /* Paddle */,
-				849607181E97A72C001FD985 /* Center */,
-				84564ECA1E7E851500356523 /* Scene */,
-				8471DE651E7CBCEB006C8F3D /* AppDelegate.swift */,
-				8471DE671E7CBCEB006C8F3D /* GameScene.sks */,
+				8471DE771E7CBCEB006C8F3D /* Info.plist */,
 				8471DE691E7CBCEB006C8F3D /* Actions.sks */,
+				8471DE671E7CBCEB006C8F3D /* GameScene.sks */,
+				8471DE651E7CBCEB006C8F3D /* AppDelegate.swift */,
 				8471DE6B1E7CBCEB006C8F3D /* GameScene.swift */,
 				8471DE6D1E7CBCEB006C8F3D /* GameViewController.swift */,
-				8471DE6F1E7CBCEB006C8F3D /* Main.storyboard */,
 				8471DE721E7CBCEB006C8F3D /* Assets.xcassets */,
+				845F0C8F1E8A7DCA00CAD38D /* Ball */,
+				845F0C901E8A7E4300CAD38D /* Brick */,
+				84F6963E1E99E72A00789767 /* bullet */,
+				849607181E97A72C001FD985 /* Center */,
+				84036AEE1E8ADFCF006A7299 /* constant */,
+				84036AF11E8AE2D9006A7299 /* ContactDelegate */,
+				8496071C1E97AC96001FD985 /* EventNode */,
 				8471DE741E7CBCEB006C8F3D /* LaunchScreen.storyboard */,
-				8471DE771E7CBCEB006C8F3D /* Info.plist */,
+				8471DE6F1E7CBCEB006C8F3D /* Main.storyboard */,
+				845F0C8D1E8A7DAE00CAD38D /* Paddle */,
+				84564ECA1E7E851500356523 /* Scene */,
 			);
 			path = "Hackathon - IOS7 - CI";
 			sourceTree = "<group>";
@@ -182,12 +185,20 @@
 		8496071C1E97AC96001FD985 /* EventNode */ = {
 			isa = PBXGroup;
 			children = (
-				8496071D1E97ACAA001FD985 /* PaddleFire.swift */,
-				8496071F1E97AD0D001FD985 /* CenterFire.swift */,
+				8496071F1E97AD0D001FD985 /* Fire.swift */,
 				849E6BE51E9892F000566024 /* RemovePaddle.swift */,
 				849E6BE71E98931A00566024 /* InvisiblePaddle.swift */,
+				84F6963C1E99E55A00789767 /* Event.swift */,
 			);
 			name = EventNode;
+			sourceTree = "<group>";
+		};
+		84F6963E1E99E72A00789767 /* bullet */ = {
+			isa = PBXGroup;
+			children = (
+				84F6963F1E99E75B00789767 /* Bullets.swift */,
+			);
+			name = bullet;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -269,10 +280,12 @@
 				849E6BE41E98905600566024 /* Brick.swift in Sources */,
 				84036AED1E8ADD53006A7299 /* Ball.swift in Sources */,
 				8471DE6C1E7CBCEB006C8F3D /* GameScene.swift in Sources */,
-				849607201E97AD0D001FD985 /* CenterFire.swift in Sources */,
+				849607201E97AD0D001FD985 /* Fire.swift in Sources */,
 				8496071B1E97A75D001FD985 /* Center.swift in Sources */,
+				84F6963D1E99E55A00789767 /* Event.swift in Sources */,
 				845F0C8C1E8A7C5400CAD38D /* StartScene.swift in Sources */,
 				84036AF01E8ADFFC006A7299 /* constants.swift in Sources */,
+				84F696401E99E75B00789767 /* Bullets.swift in Sources */,
 				84036AFB1E8AE810006A7299 /* MatrixAdapter.swift in Sources */,
 				8471DE6E1E7CBCEB006C8F3D /* GameViewController.swift in Sources */,
 				845F0C8A1E8A7C4500CAD38D /* GameOverScene.swift in Sources */,
@@ -280,7 +293,6 @@
 				84036AF91E8AE5FA006A7299 /* StartNode.swift in Sources */,
 				8471DE661E7CBCEB006C8F3D /* AppDelegate.swift in Sources */,
 				84036AF31E8AE2E4006A7299 /* ContactDelegate.swift in Sources */,
-				8496071E1E97ACAA001FD985 /* PaddleFire.swift in Sources */,
 				849E6BE81E98931A00566024 /* InvisiblePaddle.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

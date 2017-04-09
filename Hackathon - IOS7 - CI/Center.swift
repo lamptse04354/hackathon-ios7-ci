@@ -25,5 +25,7 @@ class Center: SKSpriteNode {
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width)
         self.physicsBody?.isDynamic = false
         self.physicsBody?.linearDamping = 0
+        self.physicsBody?.categoryBitMask
+        self.physicsBody?.contactTestBitMask
     }
 }

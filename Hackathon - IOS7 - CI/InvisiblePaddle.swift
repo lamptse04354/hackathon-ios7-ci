@@ -19,4 +19,13 @@ class InvisiblePaddle: SKSpriteNode {
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
     }
+    
+    func configPhysics() -> Void{
+        
+        self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width)
+        self.physicsBody?.linearDamping
+        self.physicsBody?.categoryBitMask
+        self.physicsBody?.contactTestBitMask
+        
+    }
 }

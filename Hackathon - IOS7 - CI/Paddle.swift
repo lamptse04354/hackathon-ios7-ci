@@ -12,6 +12,8 @@ import SpriteKit
 
 class Paddle: SKSpriteNode {
     
+    let paddleTexture = SKTexture(imageNamed: "paddle")
+    
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
@@ -24,7 +26,7 @@ class Paddle: SKSpriteNode {
     func configPhysics() -> Void {
         let path = UIBezierPath(arcCenter: self.anchorPoint, radius: self.size.width, startAngle: 4 * CGFloat(M_PI) / 3, endAngle: 5 * CGFloat(M_PI) / 3, clockwise: false)
         
-        self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width)
+        self.physicsBody = SKPhysicsBody(texture: paddleTexture, size: self.size)
         self.physicsBody?.isDynamic = false
         self.physicsBody?.linearDamping = 0
     }

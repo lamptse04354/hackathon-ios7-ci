@@ -26,18 +26,18 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     var score : Int = 0
     var highScore : Int = 0
-       
+    
+    var rotation : CGFloat = CGFloat(M_PI)
+    
     
     var startTime : TimeInterval = -1
-    
-    
     
     
     override func didMove(to view: SKView) {
         
         addPaddle()
         addBall()
-        //addCenter()
+        addCenter()
         configPhysics()
         
         startNode = StartNode(scene: self)
@@ -52,15 +52,11 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         scoreLabel.text = "\(score)"
         scoreLabel.textColor = UIColor.red
         self.view?.addSubview(scoreLabel)
-//        
-//        highScoreLabel = UILabel(frame: CGRect(x: self.size.width / 6 * 3, y: self.size.height - 20, width: 100, height: 20))
-//        highScoreLabel.text = "Top : \(highScore)"
-//        highScoreLabel.textColor = UIColor.blue
-//        self.view?.addSubview(highScoreLabel)
 
     }
     
     func didBegin(_ contact: SKPhysicsContact) {
+        
         
         let bodyA = contact.bodyA
         let bodyB = contact.bodyB
@@ -78,10 +74,12 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         }
     }
     
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let firstTouch = touches.first {
-            let location = firstTouch.location(in: self)
-            paddle.position.x = location.x
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if touches.first != nil {
+            rotation = -(rotation)
+            
+            paddle.removeAllActions()
+            paddle.run(.repeatForever(.rotate(byAngle: rotation, duration: 2)))
         }
     }
     
@@ -89,6 +87,8 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         if startTime == -1 {
             startTime = currentTime
         }
+        
+        
     }
     
     func configPhysics() -> Void {
@@ -97,6 +97,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     }
     
     func addBall() -> Void {
+        
         ball.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         ball.size = CGSize(width: self.size.width * 0.03, height: self.size.width * 0.03)
         ball.position = CGPoint(x: (self.size.width / 2), y: (self.size.height / 2) + paddle.size.height / 2 + ball.size.height / 2)
@@ -108,11 +109,9 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addPaddle() -> Void {
         paddle.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        paddle.size = CGSize(width: self.size.width * 0.2, height: self.size.width * 0.2)
+        paddle.size = CGSize(width: self.size.width * 0.4 + 5, height: self.size.width * 0.4 + 5)
         paddle.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         paddle.configPhysics()
-        
-        paddle.run(.repeatForever(.rotate(byAngle: CGFloat(M_PI), duration: 1)))
         
         addChild(paddle)
     }
