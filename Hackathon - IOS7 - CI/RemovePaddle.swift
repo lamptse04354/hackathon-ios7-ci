@@ -19,4 +19,6 @@ class RemovePaddle: SKSpriteNode {
     override init(texture: SKTexture?, color: UIColor, size: CGSize) {
         super.init(texture: texture, color: color, size: size)
     }
+    
+    
 }

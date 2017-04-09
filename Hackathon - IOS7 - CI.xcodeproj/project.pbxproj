@@ -11,8 +11,7 @@
 		84036AF01E8ADFFC006A7299 /* constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84036AEF1E8ADFFC006A7299 /* constants.swift */; };
 		84036AF31E8AE2E4006A7299 /* ContactDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84036AF21E8AE2E4006A7299 /* ContactDelegate.swift */; };
 		84036AF71E8AE42C006A7299 /* Paddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84036AF61E8AE42C006A7299 /* Paddle.swift */; };
-		84036AF91E8AE5FA006A7299 /* StartNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84036AF81E8AE5FA006A7299 /* StartNode.swift */; };
-		84036AFB1E8AE810006A7299 /* MatrixAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84036AFA1E8AE810006A7299 /* MatrixAdapter.swift */; };
+		84036AFB1E8AE810006A7299 /* BricksManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84036AFA1E8AE810006A7299 /* BricksManager.swift */; };
 		845F0C8A1E8A7C4500CAD38D /* GameOverScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F0C891E8A7C4500CAD38D /* GameOverScene.swift */; };
 		845F0C8C1E8A7C5400CAD38D /* StartScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = 845F0C8B1E8A7C5400CAD38D /* StartScene.swift */; };
 		8471DE661E7CBCEB006C8F3D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8471DE651E7CBCEB006C8F3D /* AppDelegate.swift */; };
@@ -25,12 +24,12 @@
 		8471DE761E7CBCEB006C8F3D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8471DE741E7CBCEB006C8F3D /* LaunchScreen.storyboard */; };
 		8496071B1E97A75D001FD985 /* Center.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496071A1E97A75D001FD985 /* Center.swift */; };
 		849607201E97AD0D001FD985 /* Fire.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8496071F1E97AD0D001FD985 /* Fire.swift */; };
-		849607221E97DF3C001FD985 /* BrickManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849607211E97DF3C001FD985 /* BrickManager.swift */; };
 		849E6BE41E98905600566024 /* Brick.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E6BE31E98905600566024 /* Brick.swift */; };
 		849E6BE61E9892F000566024 /* RemovePaddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E6BE51E9892F000566024 /* RemovePaddle.swift */; };
 		849E6BE81E98931A00566024 /* InvisiblePaddle.swift in Sources */ = {isa = PBXBuildFile; fileRef = 849E6BE71E98931A00566024 /* InvisiblePaddle.swift */; };
 		84F6963D1E99E55A00789767 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6963C1E99E55A00789767 /* Event.swift */; };
 		84F696401E99E75B00789767 /* Bullets.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F6963F1E99E75B00789767 /* Bullets.swift */; };
+		84F696421E9A02F600789767 /* BricksAdapter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84F696411E9A02F600789767 /* BricksAdapter.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,8 +37,7 @@
 		84036AEF1E8ADFFC006A7299 /* constants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = constants.swift; sourceTree = "<group>"; };
 		84036AF21E8AE2E4006A7299 /* ContactDelegate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactDelegate.swift; sourceTree = "<group>"; };
 		84036AF61E8AE42C006A7299 /* Paddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Paddle.swift; sourceTree = "<group>"; };
-		84036AF81E8AE5FA006A7299 /* StartNode.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartNode.swift; sourceTree = "<group>"; };
-		84036AFA1E8AE810006A7299 /* MatrixAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MatrixAdapter.swift; sourceTree = "<group>"; };
+		84036AFA1E8AE810006A7299 /* BricksManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BricksManager.swift; sourceTree = "<group>"; };
 		845F0C891E8A7C4500CAD38D /* GameOverScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GameOverScene.swift; sourceTree = "<group>"; };
 		845F0C8B1E8A7C5400CAD38D /* StartScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StartScene.swift; sourceTree = "<group>"; };
 		8471DE621E7CBCEB006C8F3D /* Hackathon - IOS7 - CI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Hackathon - IOS7 - CI.app"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -54,12 +52,12 @@
 		8471DE771E7CBCEB006C8F3D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8496071A1E97A75D001FD985 /* Center.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Center.swift; sourceTree = "<group>"; };
 		8496071F1E97AD0D001FD985 /* Fire.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Fire.swift; sourceTree = "<group>"; };
-		849607211E97DF3C001FD985 /* BrickManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BrickManager.swift; sourceTree = "<group>"; };
 		849E6BE31E98905600566024 /* Brick.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Brick.swift; sourceTree = "<group>"; };
 		849E6BE51E9892F000566024 /* RemovePaddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RemovePaddle.swift; sourceTree = "<group>"; };
 		849E6BE71E98931A00566024 /* InvisiblePaddle.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InvisiblePaddle.swift; sourceTree = "<group>"; };
 		84F6963C1E99E55A00789767 /* Event.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		84F6963F1E99E75B00789767 /* Bullets.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bullets.swift; sourceTree = "<group>"; };
+		84F696411E9A02F600789767 /* BricksAdapter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BricksAdapter.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,10 +123,9 @@
 		845F0C901E8A7E4300CAD38D /* Brick */ = {
 			isa = PBXGroup;
 			children = (
-				84036AF81E8AE5FA006A7299 /* StartNode.swift */,
-				84036AFA1E8AE810006A7299 /* MatrixAdapter.swift */,
-				849607211E97DF3C001FD985 /* BrickManager.swift */,
+				84036AFA1E8AE810006A7299 /* BricksManager.swift */,
 				849E6BE31E98905600566024 /* Brick.swift */,
+				84F696411E9A02F600789767 /* BricksAdapter.swift */,
 			);
 			name = Brick;
 			sourceTree = "<group>";
@@ -276,7 +273,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				849E6BE61E9892F000566024 /* RemovePaddle.swift in Sources */,
-				849607221E97DF3C001FD985 /* BrickManager.swift in Sources */,
 				849E6BE41E98905600566024 /* Brick.swift in Sources */,
 				84036AED1E8ADD53006A7299 /* Ball.swift in Sources */,
 				8471DE6C1E7CBCEB006C8F3D /* GameScene.swift in Sources */,
@@ -286,12 +282,12 @@
 				845F0C8C1E8A7C5400CAD38D /* StartScene.swift in Sources */,
 				84036AF01E8ADFFC006A7299 /* constants.swift in Sources */,
 				84F696401E99E75B00789767 /* Bullets.swift in Sources */,
-				84036AFB1E8AE810006A7299 /* MatrixAdapter.swift in Sources */,
+				84036AFB1E8AE810006A7299 /* BricksManager.swift in Sources */,
 				8471DE6E1E7CBCEB006C8F3D /* GameViewController.swift in Sources */,
 				845F0C8A1E8A7C4500CAD38D /* GameOverScene.swift in Sources */,
 				84036AF71E8AE42C006A7299 /* Paddle.swift in Sources */,
-				84036AF91E8AE5FA006A7299 /* StartNode.swift in Sources */,
 				8471DE661E7CBCEB006C8F3D /* AppDelegate.swift in Sources */,
+				84F696421E9A02F600789767 /* BricksAdapter.swift in Sources */,
 				84036AF31E8AE2E4006A7299 /* ContactDelegate.swift in Sources */,
 				849E6BE81E98931A00566024 /* InvisiblePaddle.swift in Sources */,
 			);

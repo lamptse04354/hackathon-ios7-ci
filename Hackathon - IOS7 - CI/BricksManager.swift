@@ -10,12 +10,12 @@ import Foundation
 
 import SpriteKit
 
-class MatrixAdapter{
+class BricksManager{
     
     var topBricks : [Brick] = []
     var botBricks : [Brick] = []
     
-    var spawnTime : Double = 20
+    var spawnTime : Double = 5
     
     let matrix : [[Int]] = [[1,1,1,1,1,1,1],
                             [1,2,1,2,1,2,1],
@@ -23,13 +23,14 @@ class MatrixAdapter{
                             [1,2,2,1,2,2,1],
                             [2,2,1,1,1,2,2],
                             [2,2,1,2,1,2,2]
-                            ]
+    ]
     
-//    Int(arc4random_uniform(5))
+    //    Int(arc4random_uniform(5))
     
     var startTime : TimeInterval =  -1
     var spawnTimeCount : TimeInterval = -1
     
+    var brickAdapter : BricksAdapter!
     
     
     let scene : SKScene
@@ -43,28 +44,43 @@ class MatrixAdapter{
     //Get Node add StartGame
     
     
-    func getBotBricks() -> Void{
+    func getStartBotBricks() -> Void{
         for rowIndex in 0...2 {
             for colIndex in 0...6 {
-                let brickNode = SKSpriteNode(imageNamed: "brick.png")
+                let brickNode = Brick(imageNamed: "brickType1.png")
                 brickNode.size = CGSize(width: brickSize, height: brickSize / 3)
                 brickNode.position = CGPoint(x: 5 + (brickSize / 2) + brickSize * CGFloat(colIndex) + 5 * CGFloat(colIndex) , y: (brickSize / 6) + brickSize / 3 * CGFloat(rowIndex) + 5 * CGFloat(rowIndex) )
                 
+                brickNode.physicsBody = SKPhysicsBody(rectangleOf: brickNode.size)
+                brickNode.physicsBody?.isDynamic = false
+                brickNode.physicsBody?.linearDamping = 0
+                brickNode.physicsBody?.categoryBitMask = BitMask.brickType1Catelogy
+                brickNode.physicsBody?.collisionBitMask = 2
+                brickNode.physicsBody?.contactTestBitMask = BitMask.ballCatelogy
                 self.scene.addChild(brickNode)
-                botBricks.append(brickNode as! Brick)
+                botBricks.append(brickNode)
+                
             }
         }
     }
     
-    func getTopBricks() -> Void{
+    func getStartTopBricks() -> Void{
         for rowIndex in 0...2 {
             for colIndex in 0...6 {
-                let brickNode = SKSpriteNode(imageNamed: "brick.png")
+                let brickNode = Brick(imageNamed: "brickType1.png")
                 brickNode.size = CGSize(width: brickSize, height: brickSize / 3)
-                brickNode.position = CGPoint(x: 5 + (brickSize / 2) + brickSize * CGFloat(colIndex) + 5 * CGFloat(colIndex) , y: self.scene.size.height - (brickSize / 6) - brickSize / 3 * CGFloat(rowIndex) - 5 * CGFloat(rowIndex) )
+                brickNode.position = CGPoint(x: 5 + (brickSize / 2) + brickSize * CGFloat(colIndex) + 5 * CGFloat(colIndex) , y: self.scene.size.height - (brickSize / 6) - brickSize / 3 * CGFloat(rowIndex) - 5 * CGFloat(rowIndex))
+                
+                brickNode.physicsBody = SKPhysicsBody(rectangleOf: brickNode.size)
+                brickNode.physicsBody?.isDynamic = false
+                brickNode.physicsBody?.linearDamping = 0
+                brickNode.physicsBody?.categoryBitMask = BitMask.brickType1Catelogy
+                brickNode.physicsBody?.collisionBitMask = 2
+                brickNode.physicsBody?.contactTestBitMask = BitMask.ballCatelogy
                 
                 self.scene.addChild(brickNode)
-                topBricks.append(brickNode as! Brick)
+                topBricks.append(brickNode)
+                
             }
         }
         
@@ -75,8 +91,8 @@ class MatrixAdapter{
     func getNodeBot(dataOfMatrix : [Int]) -> Void{
         for colIndex in 0...6 {
             if (dataOfMatrix[colIndex] == 1 ) {
-                let brickNode = SKSpriteNode(imageNamed: "brickType1.png")
-                                    brickNode.position = CGPoint(x: 5 + (brickSize / 2) + brickSize * CGFloat(colIndex) + 5 * CGFloat(colIndex) , y: (brickSize / 6))
+                let brickNode = Brick(imageNamed: "brickType1.png")
+                brickNode.position = CGPoint(x: 5 + (brickSize / 2) + brickSize * CGFloat(colIndex) + 5 * CGFloat(colIndex) , y: (brickSize / 6))
                 brickNode.size = CGSize(width: brickSize, height: brickSize / 3)
                 brickNode.physicsBody = SKPhysicsBody(rectangleOf: brickNode.size)
                 brickNode.physicsBody?.isDynamic = false
@@ -87,11 +103,10 @@ class MatrixAdapter{
                 
                 self.scene.addChild(brickNode)
                 
-                botBricks.append(brickNode as! Brick)
-                
+                botBricks.append(brickNode)
             }else if(dataOfMatrix[colIndex] == 2){
-                let brickNode = SKSpriteNode(imageNamed: "brickType2.png")
-                                    brickNode.position = CGPoint(x: 5 + (brickSize / 2) + brickSize * CGFloat(colIndex) + 5 * CGFloat(colIndex) , y: (brickSize / 6) )
+                let brickNode = Brick(imageNamed: "brickType2.png")
+                brickNode.position = CGPoint(x: 5 + (brickSize / 2) + brickSize * CGFloat(colIndex) + 5 * CGFloat(colIndex) , y: (brickSize / 6) )
                 brickNode.size = CGSize(width: brickSize, height: brickSize / 3)
                 brickNode.physicsBody = SKPhysicsBody(rectangleOf: brickNode.size)
                 brickNode.physicsBody?.isDynamic = false
@@ -102,7 +117,7 @@ class MatrixAdapter{
                 
                 self.scene.addChild(brickNode)
                 
-                botBricks.append(brickNode as! Brick)
+                botBricks.append(brickNode)
             }
         }
     }
@@ -110,7 +125,7 @@ class MatrixAdapter{
     func getNodeTop(dataOfMatrix : [Int]) -> Void{
         for colIndex in 0...6 {
             if (dataOfMatrix[colIndex] == 1 ) {
-                let brickNode = SKSpriteNode(imageNamed: "brickType1.png")
+                let brickNode = Brick(imageNamed: "brickType1.png")
                 brickNode.position = CGPoint(x: 5 + (brickSize / 2) + brickSize * CGFloat(colIndex) + 5 * CGFloat(colIndex) , y: self.scene.size.height - (brickSize / 6))
                 brickNode.size = CGSize(width: brickSize, height: brickSize / 3)
                 brickNode.physicsBody = SKPhysicsBody(rectangleOf: brickNode.size)
@@ -122,10 +137,10 @@ class MatrixAdapter{
                 
                 self.scene.addChild(brickNode)
                 
-                topBricks.append(brickNode as! Brick)
+                topBricks.append(brickNode)
                 
             }else if(dataOfMatrix[colIndex] == 2){
-                let brickNode = SKSpriteNode(imageNamed: "brickType2.png")
+                let brickNode = Brick(imageNamed: "brickType2.png")
                 brickNode.position = CGPoint(x: 5 + (brickSize / 2) + brickSize * CGFloat(colIndex) + 5 * CGFloat(colIndex) , y: self.scene.size.height - (brickSize / 6) )
                 brickNode.size = CGSize(width: brickSize, height: brickSize / 3)
                 brickNode.physicsBody = SKPhysicsBody(rectangleOf: brickNode.size)
@@ -137,12 +152,12 @@ class MatrixAdapter{
                 
                 self.scene.addChild(brickNode)
                 
-                topBricks.append(brickNode as! Brick)
+                topBricks.append(brickNode)
             }
         }
     }
     
-     func update(_ currentTime: TimeInterval) {
+    func update(_ currentTime: TimeInterval) {
         if startTime == -1 {
             startTime = currentTime
             spawnTimeCount = currentTime
@@ -150,10 +165,12 @@ class MatrixAdapter{
         
         if (currentTime - spawnTimeCount) > spawnTime {
             for node in botBricks {
-                node.run(.moveBy(x: 0, y: node.size.height, duration: 0.5))
+                (node as AnyObject).run!(.moveBy(x: 0, y: (node as AnyObject).size.height, duration: 0.5))
+                print("a")
             }
             for node in topBricks {
-                node.run(.moveBy(x: 0, y: -( node.size.height), duration: 0.5))
+                (node as AnyObject).run!(.moveBy(x: 0, y: -((node as AnyObject).size.height), duration: 0.5))
+                print("b")
             }
             
         }

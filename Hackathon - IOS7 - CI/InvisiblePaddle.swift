@@ -23,9 +23,9 @@ class InvisiblePaddle: SKSpriteNode {
     func configPhysics() -> Void{
         
         self.physicsBody = SKPhysicsBody(circleOfRadius: self.size.width)
-        self.physicsBody?.linearDamping
-        self.physicsBody?.categoryBitMask
-        self.physicsBody?.contactTestBitMask
+        self.physicsBody?.linearDamping = 0
+        self.physicsBody?.categoryBitMask = BitMask.InvisiblePaddleCatelogy
+        self.physicsBody?.contactTestBitMask = BitMask.paddleCatelogy
         
     }
 }

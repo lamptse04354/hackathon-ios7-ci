@@ -16,7 +16,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     let center = Center(imageNamed: "center.png")
     
     
-    var startNode  : StartNode!
+    var brickManager : BricksManager!
     
     
     
@@ -39,10 +39,10 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         addBall()
         addCenter()
         configPhysics()
-        
-        startNode = StartNode(scene: self)
-        startNode.getBotBricks()
-        startNode.getTopBricks()
+
+        brickManager = BricksManager(scene: self)
+        brickManager.getStartBotBricks()
+        brickManager.getStartTopBricks()
         
         let border = SKPhysicsBody(edgeLoopFrom: (view.scene?.frame)!)
         border.friction = 0
@@ -61,17 +61,36 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         let bodyA = contact.bodyA
         let bodyB = contact.bodyB
         
+        var firstBody = SKPhysicsBody()
+        var secondBody = SKPhysicsBody()
+        
         guard let nodeA = bodyA.node, let nodeB = bodyB.node else {
             return
         }
         
-        if let contactDelegateA = nodeA as? ContactDelegate {
-            contactDelegateA.didContact(other: nodeB)
+        if contact.bodyA.categoryBitMask < contact.bodyB.categoryBitMask {
+            firstBody = contact.bodyA
+            secondBody = contact.bodyB
         }
         
-        if let contactDelegateB = nodeB as? ContactDelegate {
-            contactDelegateB.didContact(other: nodeA)
+        else {
+            firstBody = contact.bodyB
+            secondBody = contact.bodyA
         }
+        
+        if firstBody.categoryBitMask == BitMask.ballCatelogy && secondBody.categoryBitMask == BitMask.brickType1Catelogy {
+            score += 1
+            scoreLabel.text = "\(score)"
+            nodeA.removeFromParent()
+        }
+        if firstBody.categoryBitMask == BitMask.ballCatelogy && secondBody.categoryBitMask == BitMask.brickType2Catelogy {
+            score += 1
+            scoreLabel.text = "\(score)"
+            nodeA.removeFromParent()
+        }
+
+        
+        
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -101,6 +120,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
         ball.anchorPoint = CGPoint(x: 0.5, y: 0.5)
         ball.size = CGSize(width: self.size.width * 0.03, height: self.size.width * 0.03)
         ball.position = CGPoint(x: (self.size.width / 2), y: (self.size.height / 2) + paddle.size.height / 2 + ball.size.height / 2)
+        
         ball.configPhysics()
         
         ball.run(.repeatForever(.rotate(byAngle: CGFloat(M_PI), duration: 0.1)))
@@ -118,7 +138,7 @@ class GameScene: SKScene, SKPhysicsContactDelegate {
     
     func addCenter() -> Void {
         center.anchorPoint = CGPoint(x: 0.5, y: 0.5)
-        center.position = paddle.position
+        center.position = CGPoint(x: self.size.width / 2, y: self.size.height / 2)
         
         center.size = CGSize(width: self.size.width * 0.4 - 10, height: self.size.width * 0.4 - 10)
         
